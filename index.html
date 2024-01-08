@@ -1,7 +1,39 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./styles.css">
-        <script type="module">
+        
+        <style>
+            .alert {
+                width:15rem;
+                height:10rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: sans-serif;
+                font-size: 1.3rem;
+                margin-right:1rem;
+                margin-left:1rem;
+                background:#ccc;
+                opacity: .3;
+                transition:all .5s ease-out;
+            }
+
+            .alert.show {
+                opacity: 1;
+                transition:all .5s ease-in;
+            }
+
+            #connected.alert.show {
+                background-color: #3a3;
+                color:#eee;
+            }
+
+            #disconnected.alert.show {
+                background-color: #a33;
+                color:#eee;
+            }
+        </style>
+        
+    <script type="module">
           import { createAgent } from "https://test.connectifi-interop.com/agent/main.bundle.js";
           document.addEventListener("DOMContentLoaded", async () => {
           const fdc3 = await createAgent(
@@ -33,7 +65,9 @@
           );
           });
         </script>
+        
     </head>
+    
     <body>
         <div class='content'>
             <div class='row description'>
